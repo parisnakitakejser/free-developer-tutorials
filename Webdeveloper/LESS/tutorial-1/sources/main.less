@@ -1,0 +1,41 @@
+@change-color-blue: blue;
+@change-color-pink: pink;
+
+h1 {
+	font-size: 48px;
+	
+	small {
+		color: @change-color-blue;
+	}
+}
+
+p {
+	color: @change-color-blue;
+	
+	code {
+		color: @change-color-pink;
+	}
+}
+
+@box-width: 800px;
+@box-height: 400px;
+@box-two-margin: 25px;
+
+.box {
+	width: @box-width;
+	height: @box-height;
+	background: @change-color-blue;
+	color: @change-color-pink;
+	
+	.box-two {
+		margin: @box-two-margin;
+	}
+}
+
+.box-two {
+	width: ( @box-width / 2 ) - ( @box-two-margin * 2 );
+	height: ( @box-height / 2 ) - ( @box-two-margin * 2);
+	background: @change-color-pink;
+	color: @change-color-blue;
+	float: left;
+}
