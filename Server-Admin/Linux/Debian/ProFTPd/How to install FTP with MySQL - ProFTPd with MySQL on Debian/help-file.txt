@@ -1,0 +1,32 @@
+Allow the user the right access:
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY ‘{password}';
+
+CREATE USER 'proftpd'@'%' IDENTIFIED BY '{password}';
+GRANT ALL PRIVILEGES ON proftpd.* TO 'proftpd'@'%' IDENTIFIED BY ‘{password}';
+
+
+Create all tables for ProFTPd in MySQL:
+CREATE TABLE IF NOT EXISTS `ftpgroup` (
+  `groupname` varchar(16) COLLATE utf8_general_ci NOT NULL,
+  `gid` smallint(6) NOT NULL DEFAULT '5500',
+  `members` varchar(16) COLLATE utf8_general_ci NOT NULL,
+  KEY `groupname` (`groupname`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='ProFTP group table';
+
+CREATE TABLE IF NOT EXISTS `ftpuser` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userid` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `passwd` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `uid` smallint(6) NOT NULL DEFAULT '5500',
+  `gid` smallint(6) NOT NULL DEFAULT '5500',
+  `homedir` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `shell` varchar(16) COLLATE utf8_general_ci NOT NULL DEFAULT '/sbin/nologin',
+  `count` int(11) NOT NULL DEFAULT '0',
+  `accessed` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
+  `modified` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `userid` (`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='ProFTP user table';
+
+Generate crypted password:
+/bin/echo "{md5}"`/bin/echo -n "password" | openssl dgst -binary -md5 | openssl enc -base64`
