@@ -1,0 +1,22 @@
+body {
+	font-size: 20px;
+}
+
+h1 {
+	font-weight: lighter;
+}
+
+span {
+	font-size: 18px;
+	color: red;
+
+	&.hello_world {
+		font-size: 48px;
+		color:inherit;
+		small {
+			font-size: 28px;
+			background-color: blue;
+			color: yellow;
+		}
+	}
+}
