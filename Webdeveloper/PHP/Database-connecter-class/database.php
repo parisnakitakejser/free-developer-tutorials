@@ -45,7 +45,7 @@ class Database {
 			
 			return self::$_dbObj[self::$_dbLink];
 			
-		} catch (\PDOExpception $e) {
+		} catch (\PDOException $e) {
 			print "Database connection error sorry\n";
 			exit();
 		}
