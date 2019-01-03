@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Palanquin';
+
+  src: url('../fonts/palanquin/palanquin-regular.ttf');
+}
+
+body {
+  font-family: 'Palanquin';
+}

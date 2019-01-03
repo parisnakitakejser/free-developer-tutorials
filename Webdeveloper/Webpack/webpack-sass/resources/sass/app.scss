@@ -1,0 +1,9 @@
+$color: skyblue;
+$fontsize: 28px;
+$font_color: red;
+
+body {
+  background: $color;
+  color: $font_color;
+  font-size: $fontsize;
+}
