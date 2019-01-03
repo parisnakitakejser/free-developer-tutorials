@@ -1,3 +1,8 @@
 .DS_Store
+
 .sass-cache
+
 config.codekit
+
+node_modules
+package-lock.json
