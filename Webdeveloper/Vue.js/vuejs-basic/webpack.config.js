@@ -26,6 +26,11 @@ module.exports = {
     }]
   },
 
+  devServer: {
+    contentBase: './public',
+    port: 9000
+  },
+
   plugins: [
     new VueLoaderPlugin(),
   ]
