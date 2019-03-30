@@ -1,0 +1,10 @@
+asn1crypto==0.24.0
+cffi==1.12.2
+cryptography==2.6.1
+falcon==1.4.1
+passlib==1.7.1
+pycparser==2.19
+PyJWT==1.7.1
+pymongo==3.7.2
+python-mimeparse==1.6.0
+six==1.12.0
